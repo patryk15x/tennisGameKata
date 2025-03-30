@@ -29,36 +29,36 @@ public class TennisGameTest {
     }
 
     @Test
-    public void shouldGetCurrentGameScoreReturnLoveAll() {
+    public void shouldGetTennisGameScoreReturnLoveAll() {
         assertEquals("LOVE ALL", tennisGame.getTennisGameScore());
     }
 
     @ParameterizedTest
     @MethodSource("bothPlayerScoredCases")
-    public void shouldDisplayScoreReturnFifteenAll(
+    public void shouldGetTennisGameScoreReturnCorrectGameScore(
             PlayerScore firstPlayerScore,
             PlayerScore secondPlayerScore,
             String expectedGameScore) {
-        tennisGame.setPlayerScoreAndUpdateGameScore(firstPlayer, firstPlayerScore);
-        tennisGame.setPlayerScoreAndUpdateGameScore(secondPlayer, secondPlayerScore);
+        tennisGame.setTennisPlayerScoreAndUpdateGameScore(firstPlayer, firstPlayerScore);
+        tennisGame.setTennisPlayerScoreAndUpdateGameScore(secondPlayer, secondPlayerScore);
         assertEquals(expectedGameScore, tennisGame.getTennisGameScore());
     }
 
     @Test
-    public void shouldGetCurrentGameScoreReturnFifteenLove() {
-        tennisGame.setPlayerScoreAndUpdateGameScore(firstPlayer, FIFTEEN);
+    public void shouldGetTennisGameScoreReturnFifteenLove() {
+        tennisGame.setTennisPlayerScoreAndUpdateGameScore(firstPlayer, FIFTEEN);
         assertEquals("FIFTEEN LOVE", tennisGame.getTennisGameScore());
     }
 
     @Test
-    public void shouldDisplayScoreReturnAdvantageFirstPlayer() {
-        tennisGame.setPlayerScoreAndUpdateGameScore(firstPlayer, ADVANTAGE);
+    public void shouldGetTennisGameScoreReturnAdvantageDaniilMedvedev() {
+        tennisGame.setTennisPlayerScoreAndUpdateGameScore(firstPlayer, ADVANTAGE);
         assertEquals("ADVANTAGE " + firstPlayer.getPlayerName(), tennisGame.getTennisGameScore());
     }
 
     @Test
-    public void shouldGetTennisGameScoreReturnGameFirstPlayersName() {
-        tennisGame.setPlayerScoreAndUpdateGameScore(firstPlayer, GAME);
+    public void shouldGetTennisGameScoreReturnGameReturnDaniilMedvedev() {
+        tennisGame.setTennisPlayerScoreAndUpdateGameScore(firstPlayer, GAME);
         assertEquals("GAME " + firstPlayer.getPlayerName(), tennisGame.getTennisGameScore());
 
     }

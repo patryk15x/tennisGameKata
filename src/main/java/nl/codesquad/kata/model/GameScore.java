@@ -20,21 +20,21 @@ public enum GameScore {
 
     public static String getGameScore(TennisGame game) {
         if (hasScore(ALL, game))
-            return game.getFirstPlayerScore() + " " + GameScore.ALL;
+            return game.getFirstTennisPlayerScore() + " " + GameScore.ALL;
         if (hasScore(DEUCE, game))
             return DEUCE.toString();
         if (hasScore(ADVANTAGE, game))
-            return ADVANTAGE + " " + game.getPlayerByScore(PlayerScore.ADVANTAGE.name());
+            return ADVANTAGE + " " + game.getTennisPlayerNameByScore(PlayerScore.ADVANTAGE.name());
         if (hasScore(GAME, game))
-            return GAME + " " + game.getPlayerByScore(PlayerScore.GAME.name());
+            return GAME + " " + game.getTennisPlayerNameByScore(PlayerScore.GAME.name());
         else
-            return game.getFirstPlayerScore() + " " + game.getSecondPlayerScore();
+            return game.getFirstTennisPlayerScore() + " " + game.getSecondTennisPlayerScore();
     }
 
 
     private static boolean hasScore(GameScore gameScoreCondition, TennisGame game) {
         return GAME_SCORE_PREDICATES.get(gameScoreCondition).test(
-                game.getFirstPlayerScore(),
-                game.getSecondPlayerScore());
+                game.getFirstTennisPlayerScore(),
+                game.getSecondTennisPlayerScore());
     }
 }

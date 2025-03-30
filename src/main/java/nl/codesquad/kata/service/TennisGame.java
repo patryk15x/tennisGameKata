@@ -15,28 +15,28 @@ public class TennisGame {
 
     public TennisGame(TennisPlayer firstPlayer, TennisPlayer secondPlayer) {
         tennisGamePlayers = new TennisPlayer[]{firstPlayer, secondPlayer};
-        setGameScore();
+        setTennisGameScore();
     }
 
     public String getTennisGameScore() {
         return tennisGameScore;
     }
 
-    private void setGameScore() {
+    private void setTennisGameScore() {
         this.tennisGameScore = GameScore.getGameScore(this);
     }
 
-    public void setPlayerScoreAndUpdateGameScore(TennisPlayer tennisPlayer, PlayerScore playerScore) {
-        getPlayerByName(tennisPlayer.getPlayerName()).setPlayerScore(playerScore);
-        setGameScore();
+    public void setTennisPlayerScoreAndUpdateGameScore(TennisPlayer tennisPlayer, PlayerScore playerScore) {
+        getTennisPlayerByName(tennisPlayer.getPlayerName()).setPlayerScore(playerScore);
+        setTennisGameScore();
     }
 
-    public String getPlayerByScore(String score) {
+    public String getTennisPlayerNameByScore(String score) {
         Predicate<TennisPlayer> playerScorePredicate = player -> player.getPlayerScore().toString().equals(score);
         return this.getTennisPlayer(playerScorePredicate).getPlayerName();
     }
 
-    private TennisPlayer getPlayerByName(String name) {
+    private TennisPlayer getTennisPlayerByName(String name) {
         Predicate<TennisPlayer> tennisPlayerPredicate = player -> player.getPlayerName().equals(name);
         return this.getTennisPlayer(tennisPlayerPredicate);
     }
@@ -48,11 +48,11 @@ public class TennisGame {
                 .orElseThrow(() -> new IllegalArgumentException("Player not found!"));
     }
 
-    public PlayerScore getFirstPlayerScore() {
+    public PlayerScore getFirstTennisPlayerScore() {
         return tennisGamePlayers[0].getPlayerScore();
     }
 
-    public PlayerScore getSecondPlayerScore() {
+    public PlayerScore getSecondTennisPlayerScore() {
         return tennisGamePlayers[1].getPlayerScore();
     }
 }
