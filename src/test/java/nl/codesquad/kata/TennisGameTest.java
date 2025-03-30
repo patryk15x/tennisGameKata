@@ -57,7 +57,7 @@ public class TennisGameTest {
     }
 
     @Test
-    public void shouldGetTennisGameScoreReturnGameReturnDaniilMedvedev() {
+    public void shouldGetTennisGameScoreReturnGameDaniilMedvedev() {
         tennisGame.setTennisPlayerScoreAndUpdateGameScore(firstPlayer, GAME);
         assertEquals("GAME " + firstPlayer.getPlayerName(), tennisGame.getTennisGameScore());
 
